@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="shortcut icon" type="imagex/png" href="https://cdn-icons-png.flaticon.com/512/2313/2313956.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Angkor&family=Madimi+One&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Velha</title>
+</head>
+<!-- corpo inicial -->
+
+<body>
+
+    <!-- titulo inicio -->
+    <header class="titulo">
+        <img src="https://cdn-icons-png.flaticon.com/512/1865/1865409.png" alt="" width="80px"
+            height="80px">
+        <h1>Jogo da Velha</h1>
+        <h2><span>IOS</span></h2>
+
+    </header>
+    <!-- titulo final -->
+
+
+    <!-- div do jogo inicio -->
+    <div class="board" id="board">
+        <div class="cell" onclick="cellClicked(0)"></div>
+        <div class="cell" onclick="cellClicked(1)"></div>
+        <div class="cell" onclick="cellClicked(2)"></div>
+        <div class="cell" onclick="cellClicked(3)"></div>
+        <div class="cell" onclick="cellClicked(4)"></div>
+        <div class="cell" onclick="cellClicked(5)"></div>
+        <div class="cell" onclick="cellClicked(6)"></div>
+        <div class="cell" onclick="cellClicked(7)"></div>
+        <div class="cell" onclick="cellClicked(8)"></div>
+    </div>
+    <!-- div final -->
+
+    <!-- js inicial -->
+    <script>
+        let currentPlayer = 'X';
+        let board = ['', '', '', '', '', '', '', '', ''];
+
+        function cellClicked(index) {
+            if (board[index] === '') {
+                board[index] = currentPlayer;
+                document.getElementById('board').children[index].
+                    innerText = currentPlayer;
+                checkWinner();
+                currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+            }
+        }
+        function checkWinner() {
+            const winConditions = [
+                [0, 1, 2], [3, 4, 5], [6, 7, 8],
+                [0, 3, 6], [1, 4, 7], [2, 5, 8],
+                [0, 4, 8], [2, 4, 6]
+            ];
+
+
+            for (let condition of winConditions) {
+                const [a, b, c] = condition;
+                if (board[a] !== '' && board[a] === board[b] && board[a] === board[c]) {
+                    alert(`JOGADOR  ${board[a]} VENCEU!`);
+                    resetBoard();
+                    return;
+                }
+            }
+
+
+            if (!board.includes('')) {
+                alert('EMPATE');
+                resetBoard();
+            }
+        }
+
+        function resetBoard() {
+            currentPlayer = 'X';
+            board = ['', '', '', '', '', '', '', '', ''];
+            for (let i = 0; i < 9; i++) {
+                document.getElementById('board').children[i].
+                    innerText = '';
+            }
+
+            document.getElementById("taskInput").addEventListener("keypress", function (event) {
+                if (event.key === "Enter") {
+                    addTask();
+                }
+            });
+
+        }
+
+    </script>
+    <!-- js final -->
+
+    <!-- footer incial -->
+    <footer>
+
+
+        <div class="img">
+           <a href="https://www.instagram.com/gabriel_vale_mendes?igsh=bzNvMnA4ODJqbTU3"><img src="img/instagram.png" alt="" width="30px" height="30px"></a>
+
+            <a href=" https://www.linkedin.com/in/gabriel-mendes-95a028293?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><img src="/img/linkedin.png" alt="" width="30px" height="30px"></a>
+        
+            <a href="https://github.com/Gabriel-V-Mendes"><img src="/img/placa-do-github.png" alt="" width="30px" height="30px"></a>
+        </div>
+        <p>Desenvolvido por <span>Gabriel-v-Mendes</span>&copy;</p>
+        <a href="https://ios.org.br/">Instituto da Oportunidade Social</a>
+    </footer>
+    <!-- footer final  -->
+
+</body>
+
+</html>

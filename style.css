@@ -1,0 +1,137 @@
+@charset "utf 8";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.titulo {
+background: rgb(155,53,195);
+background: radial-gradient(circle, rgba(155,53,195,1) 0%, rgba(253,45,98,1) 100%);
+box-shadow: 15px 10px 10px black;
+
+    display: flex;
+    align-items:center;
+    justify-content: space-around;
+    font-size: 20px;
+}
+
+h1,
+h2 {
+    color: #f39f5a;
+
+}
+
+span {
+    color:azure;
+}
+
+body {
+    text-align: center;
+
+    font-family: "Madimi One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+
+    background: linear-gradient(226deg, #1d1a39, #451952, #662549);
+    background-size: 600% 600%;
+
+    -webkit-animation: AnimationName 3s ease infinite;
+    -moz-animation: AnimationName 3s ease infinite;
+    animation: AnimationName 3s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0% {
+        background-position: 0% 87%
+    }
+
+    50% {
+        background-position: 100% 14%
+    }
+
+    100% {
+        background-position: 0% 87%
+    }
+}
+
+@-moz-keyframes AnimationName {
+    0% {
+        background-position: 0% 87%
+    }
+
+    50% {
+        background-position: 100% 14%
+    }
+
+    100% {
+        background-position: 0% 87%
+    }
+}
+
+@keyframes AnimationName {
+    0% {
+        background-position: 0% 87%
+    }
+
+    50% {
+        background-position: 100% 14%
+    }
+
+    100% {
+        background-position: 0% 87%
+    }
+}
+
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(3, 150px);
+    gap: 2px;
+    /* margin-left: 33%; */
+    justify-content: center;
+
+    padding: 5em;
+    margin-left: 3em;
+}
+
+.cell {
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    background-color: #f39f5a;
+    box-shadow: 15px 10px 10px black;
+
+    color: #cb1c3f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 45px;
+    cursor: pointer;
+    font-family: "Angkor", serif;
+    font-style: normal;
+
+    margin: 0em 1em 1em 0em;
+}
+
+
+footer {
+    background: rgb(215, 114, 255);
+    background: radial-gradient(circle, rgb(175, 88, 209) 0%, rgb(248, 74, 117) 100%);
+    color: #f39f5a;
+
+
+    font-size: 15px;
+
+
+    text-align: right;
+}
+
+.img{
+    text-align: left;
+
+    transform: translateY(40px);
+}
